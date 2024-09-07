@@ -14,7 +14,7 @@
   --article-title-color: var(--text-color);
   --border-color: var(--text-color);
   --rec-color: var(--background-color);
-  --heder-rec-visibility: hidden;
+  --header-rec-visibility: hidden;
 
 }
 
@@ -27,8 +27,8 @@
     --hover-border-color: rgba(255, 0, 112, 0.4);
     --background-image: url(../images/cover-image-light.png);
     --article-title-color: var(--text-color);
-    --border-color: var(---text-color);
+    --border-color: var(--text-color);
     --rec-color: var(--background-color);
-    --heder-rec-visibility: hidden;
+    --header-rec-visibility: hidden;
   }
 }

@@ -14,5 +14,5 @@
   --article-title-color: var(--background-color);
   --border-color: var(--accent-color);
   --rec-color: var(--background-color);
-  --heder-rec-visibility: visible;
+  --header-rec-visibility: visible;
 }

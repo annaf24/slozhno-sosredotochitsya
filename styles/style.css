@@ -87,7 +87,7 @@
   box-shadow: 0 0 2px 2px var(--accent-color, #ff0070);
 }
 
-.header::before {
+.decorated-zone::before {
   content: '';
   position: absolute;
   display: block;
@@ -99,7 +99,7 @@
   border-block-start: 1px solid var(--accent-color, #ff0070);
 }
 
-.header::after {
+.decorated-zone::after {
   content: '';
   position: absolute;
   display: block;
@@ -130,12 +130,12 @@
     padding: 20px 20px 20px 0px;
   }
 
-  .header::before {
+  .decorated-zone::before {
     inset-inline-end: 20px;
     inset-block-start: 20px;
   }
 
-  .header::after {
+  .decorated-zone::after {
     inset-inline-start: 20px;
     inset-block-end: 20px;
   }
@@ -282,7 +282,7 @@
 }
 
 .text-link:hover {
-  text-decoration: underline;
+  border-block-end: 1px solid var(--text-color);
 }
 
 @media (width >= 768px) {
@@ -335,7 +335,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  min-height: 100vh;
+  block-size: max(100vb, 668px);
 }
 
 .footer__title {
@@ -346,43 +346,9 @@
   text-shadow: 2px 2px 0px var(--accent-color, #ff0070);
 }
 
-.footer::before {
-  content: '';
-  position: absolute;
-  display: block;
-  inline-size: 25px;
-  block-size: 25px;
-  inset-inline-end: 10px;
-  inset-block-start: 10px;
-  border-inline-end: 1px solid var(--accent-color, #ff0070);
-  border-block-start: 1px solid var(--accent-color, #ff0070);
-}
-
-.footer::after {
-  content: '';
-  position: absolute;
-  display: block;
-  inline-size: 25px;
-  block-size: 25px;
-  inset-inline-start: 10px;
-  inset-block-end: 10px;
-  border-inline-start: 1px solid var(--accent-color, #ff0070);
-  border-block-end: 1px solid var(--accent-color, #ff0070);
-}
-
 @media (width >= 768px) {
   .footer {
     padding: 20px;
-  }
-
-  .footer::before {
-    inset-inline-end: 20px;
-    inset-block-start: 20px;
-  }
-  
-  .footer::after {
-    inset-inline-start: 20px;
-    inset-block-end: 20px;
   }
 
   .footer__title {
