@@ -1,5 +1,393 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  font-family: var(--font-family, 'IBM Plex Mono', monospace);
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--text-color, #353430);
+  background-image: var(--background-image, url("../images/cover-image.png"));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: var(--background-color, #fff1f7);
+}
+
+/* HEADER */
+
+.header {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  block-size: max(100vb, 668px);
+  padding: 10px;
+}
+
+.header__theme-menu {
+  justify-self: end;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  padding: 1.5px 13px;
+  line-height: 1;
+  color: var(--accent-color, #ff0070);
+  text-transform: lowercase;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid var(--border-color, #FF0070);
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--hover-border-color, rgba(50, 49, 45, 0.4));
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  outline: 1px solid var(--border-color, #FF0070);
+}
+
+.header__rec {
+  position: absolute;
+  z-index: -1;
+  inset-inline-end: 20px;
+  inset-block-start: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  visibility: var(--header-rec-visibility, visible);
+}
+
+.header__rec::before {
+  content: "REC";
+  color: var(--accent-color, #ff0070);
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.header__rec::after {
+  content: "";
+  display: inline-block;
+  inline-size: 9px;
+  block-size: 9px;
+  background: var(--accent-color, #ff0070);
+  border-radius: 50%;
+  box-shadow: 0 0 2px 2px var(--accent-color, #ff0070);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  display: block;
+  inline-size: 25px;
+  block-size: 25px;
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
+  border-inline-end: 1px solid var(--accent-color, #ff0070);
+  border-block-start: 1px solid var(--accent-color, #ff0070);
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  display: block;
+  border-inline-start: 1px solid var(--accent-color, #ff0070);
+  border-block-end: 1px solid var(--accent-color, #ff0070);
+  inline-size: 25px;
+  block-size: 25px;
+  inset-inline-start: 10px;
+  inset-block-end: 10px;
+  border-inline-start: 1px solid var(--accent-color, #ff0070);
+  border-block-end: 1px solid var(--accent-color, #ff0070);
+}
+
+.header__title {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: .825;
+  color: var(--title-color, #DB00FF);
+  text-shadow: 4px 4px var(--accent-color, #ff0070);
+}
+
+.header__subtitle {
+  margin-block-start: 55px;
+  max-inline-size: 355px;
+  max-block-size: 117px;
+}
+
+@media (width >= 768px) {
+  .header {
+    padding: 20px 20px 20px 0px;
+  }
+
+  .header::before {
+    inset-inline-end: 20px;
+    inset-block-start: 20px;
+  }
+
+  .header::after {
+    inset-inline-start: 20px;
+    inset-block-end: 20px;
+  }
+
+  .header__rec {
+    inset-inline-end: 30px;
+    inset-block-start: 20px;
+  }
+
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__subtitle {
+    margin-block-start: 162px;
+    max-inline-size: 364px;
+    max-block-size: 117px;
+    justify-self: end;
+  }
+}
+
+@media (width >= 1024px)  {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  .header__subtitle {
+    margin-block-start: 114px;
+    max-inline-size: 491px;
+    max-block-size: 71px; 
+  }
+}
+
+/* MAIN */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 10px;
+  gap: 50px;
+}
+
+.section {
+  display: grid;
+  gap: 20px;
+}
+
+.section__title {
+  font-size: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  color: var(--accent-color, #ff0070);
+}
+
+.title-decor {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--article-title-color, #000028);
+  background-color: var(--accent-color, #ff0070);
+}
+
+.section__article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section__article-title {
+  margin-block-end: 10px;
+}
+
+.section__article-title-normal {
+  font-weight: 400;
+}
+
+.section__article-item {
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+  color: var(--text-color, #F1B2CE);
+}
+
+.section__gallery {
+  display: grid;
+  gap: 10px;
+  grid-template-rows: repeat(6, auto);
+  grid-template-areas:
+  "title"
+  "sunset"
+  "ice-cream"
+  "tape"
+  "books"
+  "street";
+  width: 100%;
+}
+
+.image__sunset {
+  grid-area: sunset;
+}
+
+.image__ice-cream {
+  grid-area: ice-cream;
+}
+
+.image__tape {
+  grid-area: tape;
+}
+
+.image__books {
+  grid-area: books;
+}
+
+.image__street {
+  grid-area: street;
+}
+
+.section__gallery .section__title {
+  grid-area: title;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-link {
+  text-shadow: 2px 2px var(--accent-color);
+  text-decoration: none;
+}
+
+.text-link:focus {
+  outline: 0;
+}
+
+.text-link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+@media (width >= 768px) {
+  .main {
+    padding: 60px 20px 60px;
+    gap: 80px;
+  }
+
+  .section {
+    grid-template-columns: clamp(236px, calc(100% / 3.2), 315px) 1fr;
+  }
+
+  .section__article-list-what{
+    grid-column-start: span 2;
+  }
+
+.section__article-list-how {
+    grid-column-start: 2;
+  }
+
+  .section__gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+    gap: 20px;
+    grid-template-areas:
+    "title title title"
+    "sunset sunset ice-cream"
+    "tape books ice-cream"
+    "tape street street";
+  }
+}
+
+@media (width >= 1024px) {
+  .section__article-list-what{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 20px;
+  }
+
+  .section-what .section__article-list-item {
+    max-inline-size: 315px;
+  }
+}
+
+/* FOOTER */
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  min-height: 100vh;
+}
+
+.footer__title {
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: 0.825;
+  color: var(--title-color, #DB00FF);
+  text-shadow: 2px 2px 0px var(--accent-color, #ff0070);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  display: block;
+  inline-size: 25px;
+  block-size: 25px;
+  inset-inline-end: 10px;
+  inset-block-start: 10px;
+  border-inline-end: 1px solid var(--accent-color, #ff0070);
+  border-block-start: 1px solid var(--accent-color, #ff0070);
+}
+
+.footer::after {
+  content: '';
+  position: absolute;
+  display: block;
+  inline-size: 25px;
+  block-size: 25px;
+  inset-inline-start: 10px;
+  inset-block-end: 10px;
+  border-inline-start: 1px solid var(--accent-color, #ff0070);
+  border-block-end: 1px solid var(--accent-color, #ff0070);
+}
+
+@media (width >= 768px) {
+  .footer {
+    padding: 20px;
+  }
+
+  .footer::before {
+    inset-inline-end: 20px;
+    inset-block-start: 20px;
+  }
+  
+  .footer::after {
+    inset-inline-start: 20px;
+    inset-block-end: 20px;
+  }
+
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
 }
