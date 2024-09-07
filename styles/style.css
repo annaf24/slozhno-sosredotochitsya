@@ -103,8 +103,6 @@
   content: '';
   position: absolute;
   display: block;
-  border-inline-start: 1px solid var(--accent-color, #ff0070);
-  border-block-end: 1px solid var(--accent-color, #ff0070);
   inline-size: 25px;
   block-size: 25px;
   inset-inline-start: 10px;
@@ -159,7 +157,7 @@
   }
 }
 
-@media (width >= 1024px)  {
+@media (width >= 1024px) {
   .header__theme-menu {
     justify-self: center;
     align-self: start;
@@ -297,7 +295,7 @@
     grid-template-columns: clamp(236px, calc(100% / 3.2), 315px) 1fr;
   }
 
-  .section__article-list-what{
+  .section__article-list-what {
     grid-column-start: span 2;
   }
 
@@ -318,7 +316,7 @@
 }
 
 @media (width >= 1024px) {
-  .section__article-list-what{
+  .section__article-list-what {
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 20px;
