@@ -35,11 +35,14 @@
 
 .header__theme-menu-button {
   padding: 1.5px 13px;
+  height: 26px;
+  font-size: inherit;
+  font-weight: 400;
   line-height: 1;
   color: var(--accent-color, #ff0070);
   text-transform: lowercase;
   background: transparent;
-  border: 1px solid transparent;
+  border: 0;
   cursor: pointer;
 }
 .header__theme-menu-button:focus {
@@ -164,6 +167,7 @@
   }
 
   .header__theme-menu-list {
+    margin-inline-start: 20px;
     flex-direction: row;
   }
 
@@ -292,7 +296,7 @@
   }
 
   .section {
-    grid-template-columns: clamp(236px, calc(100% / 3.2), 315px) 1fr;
+    grid-template-columns: clamp(236px, calc(100% / 3.1), 315px) 1fr;
   }
 
   .section__article-list-what {
